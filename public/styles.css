@@ -13,12 +13,21 @@ body {
 
 h1 {  
     /* Estilos para el encabezado principal */  
+    font-family: 'Montserrat', sans-serif;  /* Cambiar a la fuente Montserrat */
     font-size: 3em;  
     font-weight: bold;  
     text-align: center;  
     margin-top: 30px;  
-    color: #eb4d13;  
-}  
+    color: #181311;  
+    -webkit-text-stroke: 1px #ffffff; /* Borde blanco de 1px */
+    text-shadow: 
+        -1px -1px 0 #ffffff,  
+         1px -1px 0 #ffffff,
+        -1px  1px 0 #ffffff,
+         1px  1px 0 #ffffff;  
+}
+
+
 
 .background-images {  
     /* Estilos para la sección de imágenes de fondo */  
@@ -84,18 +93,21 @@ button {
     transition: background-color 0.3s ease;  
 }  
 
+
+
 button:hover {  
-    /* Estilos para el botón al pasar el mouse */  
-    background-color: #e64a19;  
-}  
+    background-color: #e64a19;
+}
 
 .grid {  
-    /* Estilos para el contenedor de la cuadrícula */  
     display: grid;  
     grid-template-columns: repeat(4, 1fr);  
     padding: 20px;  
     gap: 50px;  
-}  
+}
+
+
+
 
 .card {  
     /* Estilos para las tarjetas dentro de la cuadrícula */  

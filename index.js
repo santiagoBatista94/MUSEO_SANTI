@@ -17,9 +17,30 @@ app.use(express.static(path.join(__dirname, "public")));
 // Ruta de inicio
 app.get("/", async (req, res) => {
     try {
+        // Obtienes los departamentos de la API del Met Museum
         const response = await axios.get('https://collectionapi.metmuseum.org/public/collection/v1/departments');
         const departments = response.data.departments;
-        res.render('index', { departments });
+
+        // Crear un arreglo para las promesas de traducción
+        const translatedDepartments = await Promise.all(departments.map(async (department) => {
+            try {
+                const translation = await translate({ text: department.displayName, source: 'en', target: 'es' });
+                return {
+                    departmentId: department.departmentId, // Mantener el ID sin traducir
+                    displayName: translation.translation // Traducir solo el nombre
+                };
+            } catch (error) {
+                console.error(`Error al traducir departamento ${department.displayName}:`, error.message);
+                // Si falla la traducción, devolver el nombre original en inglés
+                return {
+                    departmentId: department.departmentId,
+                    displayName: department.displayName
+                };
+            }
+        }));
+
+        // Renderizar la página con los nombres traducidos
+        res.render('index', { departments: translatedDepartments });
     } catch (error) {
         console.error('Error al cargar departamentos:', error.response ? error.response.data : error.message);
         res.status(500).send('Error al cargar departamentos.');
