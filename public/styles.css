@@ -17,7 +17,7 @@ h1 {
     font-weight: bold;  
     text-align: center;  
     margin-top: 30px;  
-    color: #ffffff;  
+    color: #eb4d13;  
 }  
 
 .background-images {  
@@ -59,7 +59,7 @@ label {
     /* Estilos para las etiquetas del formulario */  
     font-weight: bold;  
     margin-bottom: 5px;  
-    color: #ffffff;  
+    color: #bfb7b7;  
 }  
 
 input, select {  
@@ -246,17 +246,26 @@ button:hover {
 }
 .close-btn {
     position: fixed; /* Mantiene el botón en la misma posición al hacer scroll */
-    bottom: 20px; /* Distancia desde el fondo de la ventana */
-    right: 20px; /* Distancia desde el lado derecho de la ventana */
+    bottom: 20px; 
+    right: 20px; 
     padding: 10px 15px; /* Espaciado interno */
-    background-color: #FF5722; /* Color de fondo (puedes cambiarlo) */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para dar un efecto de elevación */
+    background-color: #FF5722; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
 }
 
 .close-btn:hover {
     background-color: #FF5722; /* Cambia el color de fondo al pasar el ratón */
+}
+.card .date {
+    display: none; /* Ocultar la fecha inicialmente */
+    font-size: 1.2em;
+    color: #666;
+}
+
+.card:hover .date {
+    display: block; /* Mostrar la fecha al hacer hover */
 }
